@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int binarySearch(int arr[], int n, int start, int end, int el)
+int ascBinarySearch(vector<int> &arr, int n, int start, int end, int el)
 {
     if (start <= end)
     {
@@ -12,17 +12,17 @@ int binarySearch(int arr[], int n, int start, int end, int el)
         }
         else if (arr[mid] < el)
         {
-            return binarySearch(arr, n, mid + 1, end, el);
+            return ascBinarySearch(arr, n, mid + 1, end, el);
         }
         else
         {
-            return binarySearch(arr, n, start, mid - 1, el);
+            return ascBinarySearch(arr, n, start, mid - 1, el);
         }
     }
     return -1;
 }
 
-int pivotIdx(int arr[], int n)
+int pivotIdx(vector<int> &arr, int n)
 {
     if (arr[0] < arr[n - 1])
         return 0;
@@ -58,11 +58,12 @@ int pivotIdx(int arr[], int n)
     }
 }
 
-int solve(int arr[], int n, int el)
+int solve(vector<int> &arr, int n, int el)
 {
+    int n = arr.size();
     int pdx = pivotIdx(arr, n);
-    int idx1 = binarySearch(arr, n, 0, pdx - 1, el);
-    int idx2 = binarySearch(arr, n, pdx, n - 1, el);
+    int idx1 = ascBinarySearch(arr, n, 0, pdx - 1, el);
+    int idx2 = ascBinarySearch(arr, n, pdx, n - 1, el);
     if (idx1 == -1 && idx2 == -1)
         return -1;
     else
