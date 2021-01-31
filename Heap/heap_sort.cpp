@@ -44,7 +44,7 @@ int main()
     {
         cin >> arr[i];
     }
-    heapSort(arr, n);
+    reverse(arr, arr + n);
     for (int i = 0; i < n; i++)
     {
         cout << arr[i] << " ";

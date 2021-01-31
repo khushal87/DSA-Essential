@@ -15,7 +15,6 @@ int rainWaterTrapping(int arr[], int n)
     {
         maxr[i] = max(maxr[i + 1], arr[i]);
     }
-    vector<int> water(n);
     int sum = 0;
     for (int i = 0; i < n; i++)
     {
