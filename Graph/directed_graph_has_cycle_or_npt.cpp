@@ -49,5 +49,5 @@ int main()
         adj[a].push_back(b);
         adj[b].push_back(a);
     }
-    detectCycle(adj, n);
+    cout << detectCycle(adj, n);
 }
