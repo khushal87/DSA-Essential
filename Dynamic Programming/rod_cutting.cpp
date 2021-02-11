@@ -37,5 +37,6 @@ int main()
     }
     int lenRod;
     cin >> lenRod;
+    map<int, int> mp;
     cout << solve(p, len, n, lenRod) << endl;
 }
