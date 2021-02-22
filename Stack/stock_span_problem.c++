@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//is a variation of nearest greater element to left
+//is a variation of nearest greater element to left(previous greater element)
 void stockSpanProblem(int arr[], int n)
 {
     vector<int> v;

@@ -26,18 +26,24 @@ bool detectLoop(Node *head)
 }
 
 //fastest approach
-bool detectLoop1(Node *head)
+Node *detectLoop1(Node *head)
 {
     Node *slow = head;
     Node *fast = head;
+    Node *entry = head;
     while (fast && slow && fast->next)
     {
         slow = slow->next;
         fast = fast->next->next;
         if (slow == fast)
         {
-            return true;
+            while (slow != entry)
+            {
+                slow = slow->next;
+                entry = entry->next;
+            }
+            return entry;
         }
     }
-    return false;
+    return nullptr;
 }
