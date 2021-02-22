@@ -18,7 +18,7 @@ ll maxProduct(int arr[], int n)
         {
             max_ending_here = abs(max_ending_here);
         }
-        cout<<max_ending_here<<" ";
+        cout << max_ending_here << " ";
     }
     return max_so_far;
 }
