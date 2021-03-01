@@ -49,17 +49,3 @@ bool search(TrieNode *root, string s)
     }
     return (pCrawl != nullptr && pCrawl->endOfWord);
 }
-
-int main()
-{
-    string keys[] = {"the", "a", "there",
-                     "answer", "any", "by",
-                     "bye", "their"};
-    int n = sizeof(keys) / sizeof(keys[0]);
-    struct TrieNode *root = getNode();
-    for (int i = 0; i < n; i++)
-        insert(root, keys[i]);
-    search(root, "the") ? cout << "Yes\n" : cout << "No\n";
-    search(root, "these") ? cout << "Yes\n" : cout << "No\n";
-    return 0;
-}

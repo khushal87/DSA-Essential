@@ -7,12 +7,13 @@ struct Node
     Node *left, *right;
 };
 
-void leftView(Node *root)
+vector<int> leftView(Node *root)
 {
     if (!root)
-        return;
+        return {};
     else
     {
+        vector<int> ans;
         queue<Node *> qu;
         qu.push(root);
         while (!qu.empty())
@@ -24,7 +25,7 @@ void leftView(Node *root)
                 qu.pop();
                 if (i == 1)
                 {
-                    cout << temp->data << " ";
+                    ans.push_back(temp->data);
                 }
                 if (temp->left != nullptr)
                 {
@@ -36,5 +37,6 @@ void leftView(Node *root)
                 }
             }
         }
+        return ans;
     }
 }
