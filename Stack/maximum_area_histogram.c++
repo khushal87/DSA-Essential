@@ -78,7 +78,9 @@ int maxAreaOfHistogram(int arr[], int n)
     for (int i = 0; i < left.size(); i++)
     {
         width[i] = right[i] - left[i] - 1;
+        cout << width[i] << " ";
     }
+    cout << endl;
     vector<int> area;
     for (int i = 0; i < n; i++)
     {
@@ -96,6 +98,6 @@ int main()
     {
         cin >> arr[i];
     }
-    maxAreaOfHistogram(arr, n);
+    cout << maxAreaOfHistogram(arr, n);
     return 0;
 }

@@ -37,5 +37,5 @@ int main()
         adj[a].push_back(b);
         adj[b].push_back(a);
     }
-    dfs(adj, vis, 1, -1);
+    cout << dfs(adj, vis, 1, -1);
 }
