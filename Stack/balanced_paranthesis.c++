@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void solveBalancedPar(string s)
+bool solve(string s)
 {
     stack<char> st;
     for (auto j : s)
@@ -15,36 +15,20 @@ void solveBalancedPar(string s)
             if (st.empty())
             {
                 st.push(j);
-                continue;
             }
-            char x = st.top();
-            if ((j == ']' && x == '[') || (j == '}' && x == '{') || (j == ')' && x == '('))
+            else
             {
-                st.pop();
-                continue;
+                char x = st.top();
+                if ((j == ']' && x == '[') || (j == '}' && x == '{') || (j == ')' && x == '('))
+                {
+                    st.pop();
+                }
+                else
+                {
+                    st.push(j);
+                }
             }
-            st.push(j);
         }
     }
-    if (st.size() > 0)
-    {
-        cout << "not balanced" << endl;
-    }
-    else
-    {
-        cout << "balanced" << endl;
-    }
-}
-
-int main()
-{
-    int t;
-    cin >> t;
-    while (t--)
-    {
-        string s;
-        cin >> s;
-        solveBalancedPar(s);
-    }
-    return 0;
+    return st.empty();
 }
