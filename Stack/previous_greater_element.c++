@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void previousGreaterElement(int arr[], int n)
+vector<int> previousGreaterElement(int arr[], int n)
 {
     vector<int> v;
     stack<int> st;
@@ -32,6 +32,7 @@ void previousGreaterElement(int arr[], int n)
         }
         st.push(arr[i]);
     }
+    return v;
 }
 
 int main()

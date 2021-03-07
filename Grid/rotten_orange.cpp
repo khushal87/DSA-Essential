@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isVaid(int i, int j, int r, int c)
+bool isValid(int i, int j, int r, int c)
 {
     if (i >= 0 && i < r && j >= 0 && j < c)
         return true;
@@ -50,7 +50,7 @@ int orangesRotting(vector<vector<int>> &arr)
             {
                 int x_dir = tmp.first + x[i];
                 int y_dir = tmp.second + y[i];
-                if (isVaid(x_dir, y_dir, r, c) && arr[x_dir][y_dir] == 1)
+                if (isValid(x_dir, y_dir, r, c) && arr[x_dir][y_dir] == 1)
                 {
                     arr[x_dir][y_dir] = 2;
                     qu.push({x_dir, y_dir});

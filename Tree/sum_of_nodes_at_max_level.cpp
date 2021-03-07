@@ -5,7 +5,7 @@ struct Tree
 {
     int data;
     Tree *left;
-    Tree *rigth;
+    Tree *right;
 };
 
 int maxLevel = INT_MIN, sum = 0;
@@ -25,6 +25,6 @@ void sumOfNodes(Tree *root, int level)
             sum += root->data;
         }
         sumOfNodes(root->left, level + 1);
-        sumOfNodes(root->rigth, level + 1);
+        sumOfNodes(root->right, level + 1);
     }
 }

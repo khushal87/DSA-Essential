@@ -8,7 +8,7 @@ bool dfs(vector<vector<int>> &adj, vector<bool> &vis, int i, int parent)
     {
         if (vis[j] == false)
         {
-            if (dfs(adj, vis, j, parent) == true)
+            if (dfs(adj, vis, j, i) == true)
             {
                 return true;
             }
