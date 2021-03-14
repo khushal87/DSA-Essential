@@ -8,6 +8,7 @@ struct Node
     Node *right;
 };
 
+//if asked mirror then relate it to invert
 //utitlity to check if two tree are mirror of each other
 bool isMirror(Node *root1, Node *root2)
 {

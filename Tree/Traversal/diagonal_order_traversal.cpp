@@ -8,14 +8,18 @@ struct Node
     Node *right;
 };
 
+// \ \
+//  \ \
+//   \ \
+//   d d
 void getDiagonalOrder(Node *root, int hd, map<int, vector<int>> &mp)
 {
     if (root == nullptr)
         return;
     mp[hd].push_back(root->data);
 
-    //for left decrease by 1
-    getDiagonalOrder(root->left, hd - 1, mp);
+    //for left increase by 1
+    getDiagonalOrder(root->left, hd + 1, mp);
 
     //for right remains same
     getDiagonalOrder(root->right, hd, mp);
