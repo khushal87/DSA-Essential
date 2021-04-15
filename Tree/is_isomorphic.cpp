@@ -18,6 +18,9 @@ bool isIsomorphic(Node *tree1, Node *tree2)
         return false;
     if (tree1->data != tree2->data)
         return false;
-    if ((isIsomorphic(tree1->left, tree2->left) && isIsomorphic(tree1->right, tree2->right)) || (isIsomorphic(tree1->left, tree2->right) && isIsomorphic(tree1->right, tree2->left)))
+    if ((isIsomorphic(tree1->left, tree2->left) &&
+         isIsomorphic(tree1->right, tree2->right)) ||
+        (isIsomorphic(tree1->left, tree2->right) &&
+         isIsomorphic(tree1->right, tree2->left)))
         return true;
 }
