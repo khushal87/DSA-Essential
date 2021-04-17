@@ -1,24 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int majorityElement(vector<int> &arr, int n)
+int solve(vector<int> &nums)
 {
-    int count = 0;
-    int candidate = 0;
-    for (auto j : arr)
+    int cnt = 1;
+    int can = nums[0];
+    for (auto j : nums)
     {
-        if (count == 0)
+        if (can == j)
         {
-            candidate = j;
-        }
-        if (candidate == j)
-        {
-            count++;
+            cnt++;
         }
         else
         {
-            count--;
+            cnt--;
+        }
+        if (cnt == 0)
+        {
+            can = j;
+            cnt = 1;
         }
     }
-    return candidate;
+    cnt = 0;
+    for (auto j : nums)
+    {
+        if (j == can)
+        {
+            cnt++;
+        }
+    }
+    if (cnt > nums.size() / 2)
+        return can;
+    else
+        return -1;
 }
