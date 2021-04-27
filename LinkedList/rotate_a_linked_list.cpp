@@ -17,7 +17,7 @@ void rotate(Node *head, int k)
     else
     {
         Node *curr = head;
-        while (curr != nullptr)
+        while (curr->next != nullptr)
         {
             curr = curr->next;
         }
