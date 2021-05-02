@@ -12,13 +12,10 @@ bool dfs(vector<vector<int>> &adj, vector<bool> &vis, int i, int parent)
             {
                 return true;
             }
-            else
-            {
-                if (j != parent)
-                {
-                    return true;
-                }
-            }
+        }
+        else if (j != parent)
+        {
+            return true;
         }
     }
     return false;
