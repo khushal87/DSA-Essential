@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void kahn(vector<vector<int>> &adj, vector<bool> &vis, vector<int> &in, vector<int> &res, int n)
+void kahn(vector<vector<int>> &adj, vector<int> &in, vector<int> &res, int n)
 {
     priority_queue<int, vector<int>, greater<int>> qu;
     for (int i = 1; i <= n; i++)
@@ -43,7 +43,6 @@ int main()
     int n, m;
     cin >> n >> m;
     vector<vector<int>> adj(n + 1);
-    vector<bool> vis(n + 1, false);
     vector<int> in(n + 1, 0);
     vector<int> res;
     for (int i = 0; i < m; i++)
@@ -53,5 +52,5 @@ int main()
         adj[a].push_back(b);
         in[b]++;
     }
-    kahn(adj, vis, in, res, n);
+    kahn(adj, in, res, n);
 }
