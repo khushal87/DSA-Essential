@@ -1,75 +1,87 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+class TrieNode
+{
+public:
+    bool end;
+    TrieNode *children[26];
+    int cnt;
+    TrieNode()
+    {
+        end = false;
+        cnt = 0;
+        for (int i = 0; i < 26; i++)
+        {
+            children[i] = NULL;
+        }
+    }
+};
+
 class Trie
 {
 public:
+    /** Initialize your data structure here. */
+    TrieNode *root;
     Trie()
     {
-        root = getNode('/' - 'a');
-    }
-    //size of a node is 217 bytes
-    struct TrieNode
-    {
-        char val;
-        int count, endsHere;
-        TrieNode *child[26];
-    };
-
-    TrieNode *root;
-
-    TrieNode *getNode(int idx)
-    {
-        TrieNode *newnode = new TrieNode;
-        newnode->val = 'a' + idx;
-        newnode->count = newnode->endsHere = 0;
-        for (int i = 0; i < 26; i++)
-        {
-            newnode->child[i] = NULL;
-        }
-        return newnode;
+        root = new TrieNode();
     }
 
+    /** Inserts a word into the trie. */
     void insert(string word)
     {
-        TrieNode *curr = root;
-        int idx;
+        TrieNode *node = this->root;
         for (auto j : word)
         {
-            idx = j - '0';
-            if (curr->child[idx] == NULL)
-                curr->child[idx] = getNode(idx);
-            curr->child[idx]->count += 1;
-            curr = curr->child[idx];
+            if (!node->children[j - 'a'])
+            {
+                node->children[j - 'a'] = new TrieNode();
+            }
+            node = node->children[j - 'a'];
+            node->cnt++;
         }
-        curr->endsHere += 1;
+        node->end = true;
     }
 
+    /** Returns if the word is in the trie. */
     bool search(string word)
     {
-        TrieNode *curr = root;
-        int idx;
+        TrieNode *node = root;
         for (auto j : word)
         {
-            idx = j - 'a';
-            if (curr->child[idx] == NULL)
+            if (!node->children[j - 'a'])
+            {
                 return false;
-            curr = curr->child[idx];
+            }
+            node = node->children[j - 'a'];
         }
-        return curr->endsHere > 0;
+        return node->end;
     }
 
+    /** Returns if there is any word in the trie that starts with the given prefix. */
     bool startsWith(string prefix)
     {
-        TrieNode *curr = root;
-        int idx;
+        TrieNode *node = root;
         for (auto j : prefix)
         {
-            idx = j - 'a';
-            if (curr->child[idx] == NULL)
+            if (!node->children[j - 'a'])
+            {
                 return false;
-            curr = curr->child[idx];
+            }
+            node = node->children[j - 'a'];
         }
-        return curr->count > 0;
+        if (node->cnt > 0)
+            return true;
+        else
+            return false;
     }
 };
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * Trie* obj = new Trie();
+ * obj->insert(word);
+ * bool param_2 = obj->search(word);
+ * bool param_3 = obj->startsWith(prefix);
+ */
