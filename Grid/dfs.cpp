@@ -25,7 +25,6 @@ int dy[] = {0, 1, 0, -1};
 void dfs(int x, int y, int n, int m)
 {
     vis[x][y] = 1;
-    cout << x << " " << y << endl;
     for (int i = 0; i < 4; i++)
     {
         if (isValid(x + dx[i], y + dy[i], n, m))

@@ -16,7 +16,7 @@ void bfs(vector<vector<int>> &adj, vector<bool> &vis, vector<int> &dis, int i)
             if (!vis[j])
             {
                 q.push(j);
-                dis[j] += (dis[temp] + 1);
+                dis[j] = (dis[temp] + 1);
                 vis[j] = true;
             }
         }

@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//insertion deletion same hi hogaaa
+// **insertion deletion same hi hogaaa
 int findLCS(string x, string y, int m, int n)
 {
     int t[m + 1][n + 1];
@@ -35,5 +35,6 @@ int main()
     {
         y += x[i];
     }
+    // **insertion deletion same hi hogaaa
     cout << x.length() - findLCS(x, y, x.length(), y.length()) << endl;
 }

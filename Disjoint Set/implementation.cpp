@@ -2,6 +2,7 @@
 using namespace std;
 
 int *parent;
+
 int find(int x)
 {
     if (parent[x] == x)
@@ -14,7 +15,14 @@ void _union(int a, int b)
 {
     a = find(a);
     b = find(b);
-    parent[a] = b;
+    if (a == b)
+    {
+        return;
+    }
+    else
+    {
+        parent[a] = b;
+    }
 }
 
 vector<int> findRedundantConnection(vector<vector<int>> &edges)
