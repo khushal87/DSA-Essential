@@ -2,14 +2,14 @@
 using namespace std;
 typedef pair<int, pair<int, int>> pppi;
 
-void kClosestPoints(vector<pair<int, int>> points, int n)
+void kClosestPoints(vector<pair<int, int>> points, int k)
 {
     priority_queue<pppi> pq;
     for (auto j : points)
     {
         int dis = ((j.second * j.second)) + ((j.first * j.first));
         pq.push({dis, j});
-        if (pq.size() > 0)
+        if (pq.size() > k)
         {
             pq.pop();
         }

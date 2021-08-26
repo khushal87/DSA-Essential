@@ -27,6 +27,7 @@ void dfs(vector<vector<int>> &adj, vector<bool> &vis, vector<int> &in, vector<in
                 {
                     cout << i << " - " << j << " is a bridge" << endl;
                 }
+                low[i] = min(low[i], low[j]);
             }
         }
     }

@@ -1,30 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Tree
+struct TreeNode
 {
     int val;
-    Tree *left;
-    Tree *right;
+    TreeNode *left;
+    TreeNode *right;
 };
 
-bool isIdentical(Tree *root1, Tree *root2)
+bool areIdentical(TreeNode *root, TreeNode *subRoot)
 {
-    if (root1 == nullptr && root2 == nullptr)
+    if (root == nullptr && subRoot == nullptr)
         return true;
-    if (root1 == nullptr || root2 == nullptr)
+    if (root == nullptr || subRoot == nullptr)
         return false;
-    return root1->val == root2->val && isIdentical(root1->left, root2->left) &&
-           isIdentical(root1->right, root2->right);
+    if (root->val == subRoot->val && areIdentical(root->left, subRoot->left) && areIdentical(root->right, subRoot->right))
+    {
+        return true;
+    }
+    return false;
 }
 
-bool solve(Tree *root, Tree *target)
+bool isSubtree(TreeNode *root, TreeNode *subRoot)
 {
-    if (target == nullptr)
-        return true;
     if (root == nullptr)
         return false;
-    if (isIdentical(root, target))
+    if (subRoot == nullptr)
         return true;
-    return solve(root->left, target) || solve(root->right, target);
+    if (areIdentical(root, subRoot))
+        return true;
+    return isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
 }
